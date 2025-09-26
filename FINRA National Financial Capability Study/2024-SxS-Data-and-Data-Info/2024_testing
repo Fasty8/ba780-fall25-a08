@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv(
+
+# df = pd.read_csv(r"ba780-fall25-a08\FINRA National Financial Capability Study\2009-SxS-v2\NFCS 2009 State Data 220712 v2 copy.csv")
+
+original_df = pd.read_csv(r"D:\Boston University\Intro to Data Analytics (BA780)\ba780-fall25-a08\FINRA National Financial Capability Study\2009-SxS-v2\NFCS 2009 State Data 220712 v2.csv", na_values=["", " ", "NA", "N/A", "null", ".", "na"])
+blank_per_column = original_df.isna().sum()
+# print(blank_per_column.to_string())
+print("Total Blanks", blank_per_column.sum())
+print("Columns with blanks", (blank_per_column > 0).sum())
+print("Column Names with blanks", blank_per_column[blank_per_column > 0].index.tolist())
+print("Average blanks per column", round((blank_per_column.sum() / (blank_per_column > 0).sum()), 2))
+
