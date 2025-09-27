@@ -1,0 +1,10 @@
+import pandas as pd
+
+# Replace the path below with your actual file path if needed
+file_path = "NFCS 2018 Investor Data 191107.sav"
+
+# Read the .sav file into a pandas DataFrame
+df = pd.read_spss(file_path)
+
+# Display the first few rows
+df.head()
